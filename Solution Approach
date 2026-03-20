@@ -1,0 +1,52 @@
+Solution Approach for Preventing Fake Delivery Claims
+🧩 Understanding the Problem
+In this case, the system gives insurance money to delivery workers if they are stuck in dangerous situations like storms or disasters. But some people are misusing it by faking their GPS location and pretending they are in that area. Because the system mainly trusts GPS, it is not able to detect these fake claims properly.
+🎯 *Our Approach* 
+We thought of improving the system by not depending on just one factor (like GPS), but by checking multiple things together before approving a claim.
+🔐 *__Methods We Suggest__* 
+
+1. Not Relying Only on GPS
+GPS can be easily manipulated, so we combine it with:
+Phone movement data (like accelerometer)
+If a delivery person is real, their movement will look natural (travelling, stopping, turning, etc.)
+
+2. Checking User Behavior
+We look at the user’s past activity:
+Has the person done real deliveries before?
+Is this claim sudden or unusual?
+If something feels off, the system can flag it.
+
+3. Detecting Group Fraud
+If many users:
+Show the same location
+At the same time
+Then it might not be real. This could indicate a group trying to cheat the system.
+
+4. Verifying with Real-World Data
+We can check weather or disaster data:
+If someone claims they are stuck in a storm, but no storm exists there → suspicious case
+
+5. Device and Network Checking
+If GPS says one place but IP says another → mismatch
+Detect VPN usage
+Same device used for multiple accounts can also be flagged
+
+6. Trust Score System
+Each user can have a simple trust score based on:
+Past genuine activity
+Suspicious actions
+Lower trust score means more verification needed.
+
+7. Soft Verification Instead of Direct Rejection
+We should not block users immediately. Instead:
+Ask for a live photo or short video
+Put claim under review
+This helps avoid problems for genuine users.
+
+8. Delayed Payout for Safety
+Instead of instant payment:
+Slight delay for suspicious cases
+Verify first, then release money
+⚖️ Final Thought
+Our idea is to make the system smarter by checking multiple factors together instead of blindly trusting GPS. This way, fake claims can be reduced while still helping real delivery workers in need.
+
